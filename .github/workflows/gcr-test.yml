@@ -1,4 +1,4 @@
-name: RAPA_CICD
+name: GCR-TEST
 
 on: [push]
 
@@ -39,7 +39,7 @@ jobs:
       - name: Build and publish image to GCR
         uses: carbonchain/action-container-registry@v1.1
         with:
-          project_id: ${{ secret.GCP_PROJECT_ID }}
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
           dockerfile: ./Dockerfile
           image: gcr.io/ ${{ secret.GCP_PROJECT_ID }}/rapa:latest
           service_account_key: ${{ secrets.GCLOUD_AUTH }}
