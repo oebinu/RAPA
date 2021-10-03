@@ -54,3 +54,10 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/ywd-devops:latest
+
+      - name: get-credentials
+        uses: google-github-actions/get-gke-credentials@main
+        with:
+          cluster_name: cluset-1
+          location: us-central1-c
+          credentials: ${{ secrets.GCP_SA_KEY }}
